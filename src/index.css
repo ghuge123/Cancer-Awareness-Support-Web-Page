@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+/* Force browser to use the correct theme */
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Global body background */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-gray-900 transition-colors duration-500;
+}
+
+.dark body {
+  @apply bg-slate-950 text-gray-100;
+}

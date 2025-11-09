@@ -8,18 +8,22 @@ import { LandingSection } from './components/LandingSection.jsx';
 import { QuoteSection } from './components/QuoteSection.jsx';
 import { ContactForm } from './components/ContactForm.jsx';
 
-// This App component is only responsible for structure and context management.
 export default function App() {
     return (
         <ThemeProvider>
             <QuoteProvider>
                 <div
                     id="app-root"
-                    className="min-h-screen flex flex-col font-sans antialiased
-                               text-gray-900 bg-gray-50 dark:bg-slate-950
-                               transition-colors duration-500"
+                    className="
+                        min-h-screen 
+                        flex flex-col 
+                        font-sans antialiased
+                        text-gray-900 bg-white
+                        dark:text-gray-100 dark:bg-slate-950
+                        transition-colors duration-500
+                    "
                 >
-                    {/* Custom CSS for animations used in components */}
+                    {/* Global animation utilities */}
                     <style>{`
                         @keyframes spin-slow {
                             from { transform: rotate(0deg); }
@@ -46,33 +50,21 @@ export default function App() {
                         .animate-float-slow {
                             animation: float-slow 20s infinite ease-in-out;
                         }
-
-                        /* 3D Rotation for Banner/Form on Desktop only */
-                        @media (min-width: 768px) {
-                            .md\\:rotate-x-3 {
-                                transform: perspective(1000px) rotateX(3deg);
-                                transform-origin: top center;
-                            }
-                            .md\\:rotate-y-3 {
-                                transform: perspective(1000px) rotateY(3deg);
-                                transform-origin: center center;
-                            }
-                            .md\\:hover\\:rotate-y-0:hover {
-                                transform: perspective(1000px) rotateY(0deg) scale(1.02);
-                            }
-                        }
-                        
-                        .shadow-custom-glow-dark {
-                            box-shadow: 0 0 40px rgba(255, 105, 180, 0.4), 0 0 15px rgba(255, 105, 180, 0.2);
-                        }
                     `}</style>
 
                     <Header />
-                    <main className="flex-grow">
+
+                    <main className="
+                        flex-grow 
+                        bg-white 
+                        dark:bg-slate-950
+                        transition-colors duration-500
+                    ">
                         <LandingSection />
                         <QuoteSection />
                         <ContactForm />
                     </main>
+
                     <Footer />
                 </div>
             </QuoteProvider>

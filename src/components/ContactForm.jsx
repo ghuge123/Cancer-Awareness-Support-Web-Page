@@ -17,17 +17,21 @@ export const ContactForm = () => {
 
     const inputClasses = `w-full p-3 rounded-xl focus:ring-2 transition-all duration-300
                           ${isDark
-                              ? 'bg-slate-700 border border-slate-600 text-white focus:ring-pink-500'
-                              : 'bg-white border border-gray-300 text-gray-900 focus:ring-purple-500'
+                              ? 'bg-slate-700 border border-slate-600 text-white placeholder-gray-400 focus:ring-pink-500'
+                              : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-purple-500'
                           }`;
 
     return (
-        <section id="contact" className={`py-16 transition-colors duration-500 ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+        <section 
+    id="contact" 
+    className={`py-16 relative z-10 overflow-visible transition-colors duration-500 
+                ${isDark ? 'bg-slate-900' : 'bg-white'}`}
+>
             <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                     className={`p-8 md:p-10 rounded-3xl shadow-2xl transition-all duration-700
                                 transform md:rotate-y-3 md:hover:rotate-y-0
-                                ${isDark ? 'bg-slate-800 shadow-pink-500/20' : 'bg-gray-50 shadow-purple-500/20'}`}
+                                ${isDark ? 'bg-slate-800 shadow-pink-500/20' : 'bg-white shadow-purple-500/20'}`}
                 >
                     <h3
                         className="text-3xl font-extrabold text-center mb-6 transition-colors duration-500"

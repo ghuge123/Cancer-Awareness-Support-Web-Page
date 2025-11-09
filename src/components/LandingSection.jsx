@@ -11,7 +11,11 @@ export const LandingSection = () => {
     );
 
     return (
-        <section id="home" className="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-center overflow-hidden">
+        <section
+  id="home"
+  className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center text-center overflow-hidden"
+>
+
             {/* Background Gradient Layer */}
             <div className={`absolute inset-0 transition-all duration-1000 ${
                 isDark
@@ -29,10 +33,15 @@ export const LandingSection = () => {
 
             {/* Content Card */}
             <div
-                className={`z-10 text-center max-w-lg mx-4 p-8 md:p-12 rounded-3xl backdrop-blur-lg
-                           border transition-all duration-700 transform md:rotate-x-3
-                           ${isDark ? 'border-pink-500/50 bg-slate-800/50 shadow-custom-glow-dark' : 'border-white/50 bg-white/30 shadow-2xl shadow-pink-500/30'}`}
-            >
+    className={`z-10 text-center max-w-lg mx-4 p-8 md:p-12 rounded-3xl 
+               backdrop-blur-md
+               border transition-all duration-700 transform md:rotate-x-3
+               ${
+                   isDark
+                       ? 'border-pink-500/50 bg-slate-800/50 shadow-xl shadow-pink-500/20'
+                       : 'border-white/50 bg-white/40 shadow-xl shadow-pink-500/20'
+               }`}
+>
                 <Sun className="h-10 w-10 mx-auto text-yellow-300 mb-4 animate-spin-slow" />
                 <h2
                     className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter mb-4 transition-all duration-500"

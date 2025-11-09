@@ -18,20 +18,23 @@ export const ThemeProvider = ({ children }) => {
 
     // Apply 'dark' class to document element and update localStorage whenever theme changes
     useEffect(() => {
-        if (typeof document !== 'undefined') {
-            const rootElement = document.documentElement;
-            
-            // 1. Update the DOM class for Tailwind
-            if (theme === 'dark') {
-                rootElement.classList.add('dark');
-            } else {
-                rootElement.classList.remove('dark');
-            }
+  const root = document.documentElement;
 
-            // 2. Save the preference
-            localStorage.setItem('theme', theme);
-        }
-    }, [theme]);
+  // Tailwind mode
+  if (theme === "dark") {
+    root.classList.add("dark");
+  } else {
+    root.classList.remove("dark");
+  }
+
+  // Browser color mode
+  root.setAttribute("data-theme", theme);
+
+  // Save choice
+  localStorage.setItem("theme", theme);
+}, [theme]);
+
+
 
     const toggleTheme = useCallback(() => {
         setTheme(currentTheme => (currentTheme === 'light' ? 'dark' : 'light'));
