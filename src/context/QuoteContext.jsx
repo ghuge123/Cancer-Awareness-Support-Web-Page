@@ -1,26 +1,12 @@
 import React, { useState, useEffect, useCallback, createContext, useContext } from 'react';
-
-const withExponentialBackoff = async (fn, retries = 3) => {
-    for (let i = 0; i < retries; i++) {
-        try {
-            return await fn();
-        } catch (error) {
-            if (i === retries - 1) throw error;
-            const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
-            console.warn(`Attempt ${i + 1} failed. Retrying in ${delay.toFixed(0)}ms...`);
-            await new Promise(resolve => setTimeout(resolve, delay));
-        }
-    }
-};
+import { withExponentialBackoff } from '../utils/api';
 
 const QuoteContext = createContext();
 
-
 export const useQuote = () => useContext(QuoteContext);
 
-
 export const QuoteProvider = ({ children }) => {
-    const [quoteData, setQuoteData] = useState({ quote: '', author: '' });
+    const [quoteData, setQuoteData] = useState({ content: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -29,12 +15,16 @@ export const QuoteProvider = ({ children }) => {
         setError(null);
         try {
             const fetchFn = async () => {
-                const response = await fetch('https://api.quotable.io/random?maxLength=150');
+                console.log('hello')
+                const response = await fetch('https://raw.githubusercontent.com/ghuge123/cancer-quotes/refs/heads/main/cancer-quotes.json');
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error("Failed to load quotes");
                 }
-                const data = await response.json();
-                return { quote: data.content, author: data.author };
+
+                const quotes = await response.json();
+                const random = quotes[Math.floor(Math.random() * quotes.length)];
+
+                return { content: random.content, author: random.author };
             };
             
             const result = await withExponentialBackoff(fetchFn);
@@ -43,6 +33,7 @@ export const QuoteProvider = ({ children }) => {
         } catch (err) {
             console.error('Error fetching quote:', err);
             setError('Could not retrieve inspirational quote.');
+            setQuoteData({ content: "A journey of a thousand miles begins with a single step.", author: "Lao Tzu (Fallback)" });
         } finally {
             setLoading(false);
         }
