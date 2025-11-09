@@ -16,14 +16,14 @@ export const LandingSection = () => {
   className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center text-center overflow-hidden"
 >
 
-            {/* Background Gradient Layer */}
+           
             <div className={`absolute inset-0 transition-all duration-1000 ${
                 isDark
                     ? 'bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900'
                     : 'bg-gradient-to-br from-purple-800 via-pink-700 to-red-600'
             }`} />
 
-            {/* Abstract Bubble/Particle Effect */}
+            
             <div className="absolute inset-0 opacity-70">
                 <Bubble style={{ width: '100px', height: '100px', top: '10%', left: '15%', backgroundColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.5)', animationDuration: '15s' }} />
                 <Bubble style={{ width: '150px', height: '150px', bottom: '20%', right: '10%', backgroundColor: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.4)', animationDuration: '20s', animationDelay: '5s' }} />
@@ -31,7 +31,7 @@ export const LandingSection = () => {
                 <Bubble style={{ width: '120px', height: '120px', bottom: '5%', left: '30%', backgroundColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.6)', animationDuration: '18s', animationDelay: '3s' }} />
             </div>
 
-            {/* Content Card */}
+            
             <div
     className={`z-10 text-center max-w-lg mx-4 p-8 md:p-12 rounded-3xl 
                backdrop-blur-md

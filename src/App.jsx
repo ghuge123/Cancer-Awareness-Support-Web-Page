@@ -23,7 +23,7 @@ export default function App() {
                         transition-colors duration-500
                     "
                 >
-                    {/* Global animation utilities */}
+      
                     <style>{`
                         @keyframes spin-slow {
                             from { transform: rotate(0deg); }

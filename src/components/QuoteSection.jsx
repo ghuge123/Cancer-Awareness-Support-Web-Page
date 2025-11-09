@@ -14,13 +14,13 @@ export const QuoteSection = () => {
                     <Quote className="inline-block h-7 w-7 mr-2 animate-bounce-slow" /> Words That Inspire
                 </h3>
 
-                {/* Quote Card */}
+               
                 <div className={`relative p-8 md:p-12 rounded-3xl shadow-2xl transition-all duration-700 hover:scale-[1.01] ${
                     isDark
                         ? 'bg-slate-800 border-b-8 border-pink-600 text-gray-200'
                         : 'bg-white border-b-8 border-pink-400 text-gray-900'
                 }`}>
-                    {/* Corner Icons */}
+
                     <Heart className={`absolute top-4 right-4 h-6 w-6 opacity-30 ${isDark ? 'text-pink-500' : 'text-purple-500'}`} />
                     <Quote className={`absolute bottom-4 left-4 h-6 w-6 opacity-30 ${isDark ? 'text-purple-500' : 'text-pink-500'}`} />
 

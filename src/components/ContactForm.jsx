@@ -9,7 +9,7 @@ export const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Simulate form submission success
+        
         setStatus('success');
         setTimeout(() => setStatus(''), 5000);
         e.target.reset();

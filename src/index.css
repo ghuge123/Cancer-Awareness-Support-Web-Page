@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Force browser to use the correct theme */
+
 html[data-theme="light"] {
   color-scheme: light;
 }
@@ -9,7 +9,7 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
-/* Global body background */
+
 html, body, #root {
   height: 100%;
 }
